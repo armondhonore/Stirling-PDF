@@ -1,0 +1,11 @@
+application:
+  name: stirling-pdf
+  pods:
+  - name: app
+    image: frooodle/s-pdf:latest
+    path: /
+    servicePorts:
+    - 8080
+    vars:
+      DOCKER_ENABLE_SECURITY: "false"
+      INSTALL_BOOK_AND_ADVANCED_HTML_OPS: "false"
