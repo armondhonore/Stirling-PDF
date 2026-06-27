@@ -10,3 +10,14 @@ application:
       DOCKER_ENABLE_SECURITY: "false"
       SECURITY_ENABLELOGIN: "false"
       INSTALL_BOOK_AND_ADVANCED_HTML_OPS: "false"
+      # Cap JVM Metaspace + RAM so the container doesn't OOM (Metaspace) under
+      # its memory limit and crash-loop. Without this the pod restarts ~every
+      # 40s and never serves stably.
+      JAVA_CUSTOM_OPTS: "-XX:MaxMetaspaceSize=512m -XX:MaxRAMPercentage=70"
+    resources:
+      requests:
+        cpu: "250m"
+        memory: "512Mi"
+      limits:
+        cpu: "2"
+        memory: "2Gi"
