@@ -8,4 +8,5 @@ application:
     - 8080
     vars:
       DOCKER_ENABLE_SECURITY: "false"
+      SECURITY_ENABLELOGIN: "false"
       INSTALL_BOOK_AND_ADVANCED_HTML_OPS: "false"
